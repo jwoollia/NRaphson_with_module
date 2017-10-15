@@ -12,7 +12,7 @@ with open('nrtest.txt','r') as fn :
         c,x,n = np.loadtxt(StringIO(line), delimiter=',', comments='#', usecols=(1,2,4))
         xtol,iter,info = 1.e-6, 0, 'in'
         [x,iter,info] = jf.newtraph(c,x,n,xtol,iter,info,jf.fpower)
-        print ("Target %6.2f, %4.1f-root is %10.6f, iteration %3d ... %s " % (c,n,x,iter,info))
+        print ("Target %6.2f, %4.1f-root is %10.6f, iteration %3d ... %s, check %10.6f" % (c,n,x,iter,info,c**(1/n)))
         sol.append(x)
         cyc.append(iter)
 
